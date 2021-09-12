@@ -1,4 +1,10 @@
 # Modeling-Financial-Time-Series-with-R-Chapter-2--Univariate-Time-Series
 Modeling-Financial-Time-Series-with-R-Chapter 2- 
 Univariate Time Series: 
-AR, MA, ARMA, ARIMA, ARFIMA, Unit Root Test, and univariate time series forecasting 
+AR(p) prosess
+MA(q) prosess
+ARMA prosess
+Unit Root Test : 9 steps ADF test, KPSS Test, and ZA Test
+ARIMA
+ARFIMA with long memory test
+univariate time series forecasting and Backtesting 
