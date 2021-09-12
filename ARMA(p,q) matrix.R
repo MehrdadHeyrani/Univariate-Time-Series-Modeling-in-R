@@ -35,7 +35,6 @@
 ####################################################
 ####################################################
 
-
 # create a Loop for finding  ARMA Order based on AIC and BIC
 
 P=10 # maximum estimated order for AR part of the model
