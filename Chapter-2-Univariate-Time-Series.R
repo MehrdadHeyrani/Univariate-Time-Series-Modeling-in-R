@@ -36,6 +36,8 @@
 
 ################### code 2-1 #######################
 # 
+library(quantmod)      # Load  package
+
 getSymbols("AAPL")     #Download daily prices Apple
 getSymbols("^GSPC")    #Download daily prices S&P 500
 getSymbols("AAPL",from="2010-01-02", to="2016-06-06")
