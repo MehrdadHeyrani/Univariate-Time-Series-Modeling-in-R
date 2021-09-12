@@ -1,4 +1,7 @@
 
+##### Source: An Introduction to Analysis of Financial Data with R : Ruey S. Tsay
+
+
 "backtest"= function(m1,rt,orig,h,xre=NULL,fixed=NULL,inc.mean=TRUE){
   # m1: is a time-series model object
   # orig: is the starting forecast origin
