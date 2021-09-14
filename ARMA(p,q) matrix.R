@@ -77,10 +77,10 @@ for (h in 1:P)
 aic.x #  AIC matrix for ARMA(p: 0 to 5 , q: 0 to 5)
 bic.x #  BIC matrix for ARMA(p: 0 to 5 , q: 0 to 5)
 
-p.aic # bst AR(p) order based on minimum AIC
-q.aic # bst MA(q) order based on minimum AIC
-p.bic # bst AR(p) order based on minimum BIC
-q.bic # bst MA(q) order based on minimum BIC
+p.aic # best AR(p) order based on minimum AIC
+q.aic # best MA(q) order based on minimum AIC
+p.bic # best AR(p) order based on minimum BIC
+q.bic # best MA(q) order based on minimum BIC
 
 # Fit ARMA model based on AIC order 
 fit <- arima(x, order=c(p.aic,0, q.aic), method = c("ML"))
