@@ -10,8 +10,7 @@ MA(q) prosess
 
 ARMA prosess
 
-![image](https://user-images.githubusercontent.com/77374087/133283341-aa460ddb-f7ab-48d9-9c49-f3772eb2b3aa.png)
-
+![image](https://user-images.githubusercontent.com/77374087/133285184-2614c5f9-d6fc-4634-a3b9-d138008d52b3.png)
 
 Unit Root Test: 9 steps ADF test, KPSS Test, and ZA Test
 
