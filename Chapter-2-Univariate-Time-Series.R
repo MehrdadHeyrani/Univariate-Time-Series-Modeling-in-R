@@ -102,7 +102,7 @@ ar.fit
 
 library("TSA")
 eacf(gdp)
-fit=arima(gdp, order = c(3, 0, 0),method = c("ML"))
+fit=arima(gdp, order = c(2, 0, 0),method = c("ML"))
 tsdiag(fit)
 
 library(lmtest)
