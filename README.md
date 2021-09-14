@@ -17,3 +17,4 @@ ARIMA modeling
 ARFIMA with long memory test
 
 univariate time series forecasting and Backtesting 
+![image](https://user-images.githubusercontent.com/77374087/133278921-56f55ab6-df1a-48e6-b115-a1f36a4f29bc.png)
