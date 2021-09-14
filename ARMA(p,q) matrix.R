@@ -3,10 +3,10 @@
 #                     R Book                       #
 #                                                  #
 #                Mehrdad Heyrani                   #
-#       MehrdadHeyrani@alum.sharif.edu             #
+#          Mehrdad.Heyrani@uottawa.ca              #
 #                                                  #
 #                Nasim RoshanZamir                 #
-#                                                  #
+#                NRosh052@uottawa.ca               #
 ####################################################
 
 
@@ -37,16 +37,19 @@
 
 # create a Loop for finding  ARMA Order based on AIC and BIC
 
-P=10 # maximum estimated order for AR part of the model
+P=6 # P-1 maximum estimated order for AR part of the model
 
-Q=10 # maximum estimated order for MA part of the model
+Q=6 # Q-1 maximum estimated order for MA part of the model
 
 aic.x <- matrix(ncol=P, nrow=Q, byrow = T)
 bic.x <- matrix(ncol=P, nrow=Q, byrow = T)
+
+x=gdp
+
 for (i in 1:P)
   for (j in 1:Q)
   {
-    arimafit <- arima(x, order=c(i-1,0,j-1), method = c("ML"), optim.control = list(maxit=10000), optim.method = "BFGS")
+    arimafit <- arima(x, order=c(i-1,0,j-1), method = c("ML"), optim.control = list(maxit=1000))
     aic.x[i,j] <- AIC(arimafit)
     bic.x[i,j] <- BIC(arimafit)
   }
@@ -70,10 +73,18 @@ for (h in 1:P)
       q.bic <- f-1
     }
   }
-p.aic
-q.aic
-p.bic
-q.bic
-fit <- arima(x, order=c(p.aic,0, q.aic), method = c("ML")
-             coeftest(fit)
-             fit
+
+aic.x #  AIC matrix for ARMA(p: 0 to 5 , q: 0 to 5)
+bic.x #  BIC matrix for ARMA(p: 0 to 5 , q: 0 to 5)
+
+p.aic # bst AR(p) order based on minimum AIC
+q.aic # bst MA(q) order based on minimum AIC
+p.bic # bst AR(p) order based on minimum BIC
+q.bic # bst MA(q) order based on minimum BIC
+
+# Fit ARMA model based on AIC order 
+fit <- arima(x, order=c(p.aic,0, q.aic), method = c("ML"))
+
+coeftest(fit)
+fit
+plot(fit)             
