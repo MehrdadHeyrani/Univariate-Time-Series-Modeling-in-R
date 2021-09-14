@@ -85,16 +85,18 @@ head(data)
 d=ts(1:56, start = c(1338, 1), frequency =1)
 time = as.Date(d)
 gdp=ts(log(data$GDP))
-plot(time,gdp,type="l", lwd = 3, lty = 1, pch = 1, col="blue")
 acf(gdp, main="Autocorrelations",lwd=3)
 pacf(gdp, main="Partial Autocorrelations",lwd=3)
 ar.fit=ar(gdp)
 ar.fit$order
 aic=ar.fit$aic
 length(aic)
-par(mfrow = c(2,1))
+par(mfrow = c(3,1))
+plot(time,gdp,type="l", lwd = 3, lty = 1, pch = 1, col="blue")
+
 plot(c(0:17),aic,type="h",xlab="order",ylab="aic",lwd=5, col=4, main="AIC order")
 lines(0:17,aic,lty=2, lwd=3,col=2)
+
 ar.fit
 ################### code 2-5 #######################
 
