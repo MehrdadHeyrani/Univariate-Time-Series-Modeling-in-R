@@ -3,12 +3,11 @@
 #                     R Book                       #
 #                                                  #
 #                Mehrdad Heyrani                   #
-#       MehrdadHeyrani@alum.sharif.edu             #
+#          Mehrdad.Heyrani@uottawa.ca              #
 #                                                  #
 #                Nasim RoshanZamir                 #
-#                                                  #
+#                NRosh052@uottawa.ca               #
 ####################################################
-
 
 ####################################################
 ####################################################
@@ -35,7 +34,9 @@
 ####################################################
 
 ################### code 2-1 #######################
-# 
+###
+library(quantmod)      # Load  package
+
 getSymbols("AAPL")     #Download daily prices Apple
 getSymbols("^GSPC")    #Download daily prices S&P 500
 getSymbols("AAPL",from="2010-01-02", to="2016-06-06")
@@ -216,19 +217,21 @@ Box.test(m2$residuals, type = c( "Ljung-Box"))
 plot(predict(m2, n.ahead = 5), lwd=3, col="dark green")
 
 # model comparison
-da=read.table("q-gdpc96.txt",header=T)
-head(da)
-gdp=log(da$gdp)
-dgdp=diff(gdp)
-m1=ar(dgdp,method='mle')
-m1$order
-m2=arima(dgdp,order=c(3,0,0))
-m2
-m3=arima(dgdp,order=c(3,0,0),season=list(order=c(1,0,1),period=4))
-m3
-source("backtest.R")    # Perform backtest
-mm2=backtest(m2,dgdp,215,1)
-mm3=backtest(m3,dgdp,215,1)
+data1=read.table("gold.txt",header=T)
+d1=ts(1:198, start = c(1378), frequency =12)
+gold=ts(data1$gold)
+
+# Back testing 
+source("backtest.R")
+fit2=arima(gold,order=c(1,1,0),season=list(order=c(0,0,0)))
+fit3=arima(gold,order=c(2,1,0),season=list(order=c(0,0,0)))
+fit4=arima(gold,order=c(3,1,0),season=list(order=c(0,0,0)))
+
+mm2=backtest(fit2,gold,100,1)
+
+mm2=backtest(fit3,gold,100,1)
+
+mm3=backtest(fit3,gold,100,1)
 
 
 ######################## code 2-13 ################################
